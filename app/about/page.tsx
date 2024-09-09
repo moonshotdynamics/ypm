@@ -152,7 +152,11 @@ export default function Component() {
 }
 
 
-function LightbulbIcon(props) {
+interface LightbulbIconProps {
+  [key: string]: string | number | boolean;
+}
+
+function LightbulbIcon(props: Readonly<LightbulbIconProps>) {
   return (
     <svg
       {...props}
@@ -173,8 +177,11 @@ function LightbulbIcon(props) {
   )
 }
 
+interface QrCodeIconProps {
+  [key: string]: string | number | boolean;
+}
 
-function QrCodeIcon(props) {
+function QrCodeIcon(props: Readonly<QrCodeIconProps>) {
   return (
     <svg
       {...props}
@@ -204,8 +211,11 @@ function QrCodeIcon(props) {
   )
 }
 
+interface WorkflowIconProps {
+  [key: string]: string | number | boolean;
+}
 
-function WorkflowIcon(props) {
+function WorkflowIcon(props: Readonly<WorkflowIconProps>) {
   return (
     <svg
       {...props}
