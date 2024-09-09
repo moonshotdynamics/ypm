@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {Play } from "lucide-react"
@@ -27,17 +26,17 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-black text-white">
           <div className="px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Featured: Teen Comedy Show
+              SAFTA Nominated: 100 Day&apos;s to Succeed
             </h2>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-white">New Release</div>
+                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-white">SAFTA Nominated</div>
                 <h3 className="text-2xl font-bold">Laugh Out Loud with Our Latest Hit</h3>
-                <p className="text-gray-500 dark:text-gray-400">
-                  Join the hilarious adventures of high school friends as they navigate teen life, first crushes, and
+                <p className="text-white dark:text-gray-400">
+                  Join the hilarious adventures of high school friends, Esihle and Rhandzu, as they navigate teen life, first crushes, and
                   the challenges of growing up. It&apos;s a rollercoaster of emotions you won&apos;t want to miss!
                 </p>
                 <Button className="inline-flex items-center justify-center">
@@ -65,7 +64,7 @@ export default function LandingPage() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Have a show idea?</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Contact us, and we can breathe life into your vision. We&apos;re always on the lookout for fresh ideas.
+                  Contact us, and let us breathe life into your vision. We&apos;re always on the lookout for fresh ideas.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
@@ -81,22 +80,7 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          © {new Date().getFullYear()} Youngpreneur Media. All rights reserved.
-        </p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Terms of Service
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Privacy
-          </Link>
-          <Link className="text-xs hover:underline underline-offset-4" href="#">
-            Careers
-          </Link>
-        </nav>
-      </footer>
+
     </div>
   )
 }

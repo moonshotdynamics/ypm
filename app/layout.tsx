@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react"
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,6 +34,8 @@ export default function RootLayout({
       >
       <Header/>
         {children}
+        <Analytics />
+        <Footer/>
       </body>
     </html>
   );

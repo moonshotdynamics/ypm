@@ -20,12 +20,12 @@ const Header = () => {
     <Popover as="header" className="bg-purple text-white">
       {({ open }) => (
         <>
-          <nav className="mx-auto px-6 py-3 flex justify-between items-center bg-purple-300">
+          <nav className="mx-auto px-6 py-3 flex justify-between items-center bg-white">
             <div className="flex items-center">
               <Image src={logo} alt="logo" height={40} width={50} />
               <Link
                 href="/"
-                className="text-2xl font-bold text-white hover:purple ml-2"
+                className="text-2xl font-bold text-black hover:purple ml-2"
               >
                 Youngpreneur Media              </Link>
             </div>

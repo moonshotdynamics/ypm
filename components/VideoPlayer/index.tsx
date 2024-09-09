@@ -21,7 +21,6 @@ const VideoPlayer: FC<VideoPlayerProps> = ({ library }) => {
   const goBack = () => {
     if (start !== 0) {
       setStart(start - 1);
-      console.log(start);
       if (end > 3) setEnd(end - 1);
     }
   };

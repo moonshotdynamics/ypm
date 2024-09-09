@@ -32,7 +32,7 @@ const videos = [
 
 function Gallery() {
   return (
-    <div className="bg-cover bg-local bg-gallery-Background bg-no-repeat  pt-28 pb-20 lg:pb-96  flex flex-col">
+    <div className="bg-gray-300 pt-28 pb-20 lg:pb-96  flex flex-col">
       <h2 className="text-blueberry text-2xl font-bold md:text-5xl text-center ">
         Our Productions
       </h2>
