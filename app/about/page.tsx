@@ -5,7 +5,7 @@ export default function Component() {
     <div className="flex flex-col min-h-[100dvh]">
       <main className="flex-1">
         <section className="w-full pt-12 md:pt-24 lg:pt-32">
-          <div className="space-y-10 xl:space-y-16">
+          <div className="space-y-10 xl:space-y-16 container mx-auto">
             <div className="grid gap-4 px-10 md:grid-cols-2 md:gap-16">
               <div>
                 <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">About Us</div>
@@ -31,12 +31,12 @@ export default function Component() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-          <div className="space-y-12 px-4 md:px-6">
+          <div className="space-y-12 px-4 md:px-6 container mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Story</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Acme Productions was founded in 2010 by a team of passionate filmmakers who wanted to create visually
+                  Youngpreneur Media was founded in 2010 by a team of passionate filmmakers who wanted to create visually
                   stunning and impactful content for businesses. Over the years, we&apos;ve grown into a full-service
                   production company, offering a wide range of services from video production to motion graphics and
                   animation.
@@ -96,12 +96,12 @@ export default function Component() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="space-y-12 px-4 md:px-6">
+          <div className="space-y-12 px-4 md:px-6 container mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Values</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  At Acme Productions, we believe in creating exceptional video content that not only looks great but
+                  At Youngpreneur Media, we believe in creating exceptional video content that not only looks great but
                   also tells a compelling story. We are committed to excellence, innovation, and collaboration in
                   everything we do.
                 </p>

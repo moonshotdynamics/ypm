@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import logo from '../../public/assets/images/logo.png';
 
 const navigation = [
-  { name: 'Shows', href: '/shows' },
+  { name: 'Our Work', href: '/our-work' },
   { name: 'About', href: '/about' },
   { name: 'Contact', href: '/contact-us' },
 ];
@@ -35,7 +35,7 @@ const Header = () => {
                   key={item.name}
                   href={item.href}
                   className={`px-3 py-2 hover:text-purple-500 font-medium ${
-                    isActive(item.href) ? 'text-purple-500' : 'text-white'
+                    isActive(item.href) ? 'text-purple-500' : 'text-black'
                   }`}
                 >
                   {item.name}
