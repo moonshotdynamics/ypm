@@ -1,19 +1,12 @@
-'use client'
+'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Play } from 'lucide-react';
 import ImageGallery from '@/components/ImageGallery';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import ReactPlayer from 'react-player';
-import {
-  Dialog,
-  DialogContent,
-  // DialogClose,
-  // DialogFooter,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const images = [
   '/assets/images/100dts_prod.webp',
@@ -65,11 +58,11 @@ export default function LandingPage() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-black text-white">
           <div className="px-4 md:px-6 container mx-auto">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              SAFTA Nominated: 100 Day&apos;s to Succeed
+              🏆 SAFTA Nominated: 100 Day&apos;s to Succeed
             </h2>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-white">
+                <div className="inline-block rounded-lg bg-gold px-3 py-1 font-bold text-white text-md">
                   SAFTA Nominated
                 </div>
                 <h3 className="text-2xl font-bold">
@@ -87,7 +80,7 @@ export default function LandingPage() {
                       <Play className="mr-2 h-4 w-4" /> Watch Trailer
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-[60%] flex justify-center flex-col">
+                  <DialogContent className="max-w-[60%] flex justify-center align-middle">
                     <ReactPlayer
                       url="https://youtu.be/5z6d4LhNsPo"
                       width="640px"
@@ -100,15 +93,11 @@ export default function LandingPage() {
                             responsive: true,
                           },
                         },
+                        youtube: {
+                          playerVars: { showinfo: 1 },
+                        },
                       }}
                     />
-                    {/* <DialogFooter className="sm:justify-end">
-                      <DialogClose asChild>
-                        <Button type="button" variant="secondary">
-                          Close
-                        </Button>
-                      </DialogClose>
-                    </DialogFooter> */}
                   </DialogContent>
                 </Dialog>
               </div>
@@ -124,9 +113,16 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-500">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-500 overflow-x-hidden">
           <div className="px-4 md:px-6 container mx-auto">
-            <ImageGallery images={images} />
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white mb-8">
+                  Our Productions
+                </h2>
+                <ImageGallery images={images} />
+              </div>
+            </div>
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
@@ -148,11 +144,10 @@ export default function LandingPage() {
                     placeholder="Enter your email"
                     type="email"
                   />
-                  <Button type="submit">Subscribe</Button>
+                  <Button type="submit">Let&apos;s work</Button>
                 </form>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  By subscribing, you agree to our Terms of Service and Privacy
-                  Policy.
+                  By emailing, you agree to having one of our team members reaching out to you via email. 
                 </p>
               </div>
             </div>

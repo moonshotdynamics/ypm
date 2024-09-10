@@ -25,6 +25,11 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images }) => {
         }}
         modules={[Navigation]}
         breakpoints={{
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+
           640: {
             slidesPerView: 1,
             spaceBetween: 10,

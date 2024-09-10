@@ -22,7 +22,7 @@ const Header = () => {
   const isActive = (pathname: string) => routerPathname === pathname;
 
   return (
-    <Popover as="header" className="bg-purple text-white">
+    <Popover as="header" className="bg-gray text-white">
       {({ open }) => (
         <>
           <nav className="mx-auto px-6 py-3 flex justify-between items-center bg-white">
@@ -30,7 +30,7 @@ const Header = () => {
               <Image src={logo} alt="logo" height={40} width={50} />
               <Link
                 href="/"
-                className="text-2xl font-bold text-black hover:purple ml-2"
+                className="text-2xl font-bold text-black hover:gray ml-2"
               >
                 Youngpreneur Media{' '}
               </Link>
@@ -40,8 +40,8 @@ const Header = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-3 py-2 hover:text-purple-500 font-medium ${
-                    isActive(item.href) ? 'text-purple-500' : 'text-black'
+                  className={`px-3 py-2 hover:text-gray-500 font-medium ${
+                    isActive(item.href) ? 'text-gray-500' : 'text-black'
                   }`}
                 >
                   {item.name}
@@ -51,7 +51,7 @@ const Header = () => {
             <div className="md:hidden">
               {/* Mobile menu button */}
               <Popover.Button
-                className="text-white hover:text-purple-500 focus:outline-none focus:text-gray-300"
+                className="text-black hover:text-gray-500 focus:outline-none focus:text-gray-300"
                 aria-label="toggle menu"
               >
                 <span className="sr-only">Open main menu</span>
@@ -89,14 +89,14 @@ const Header = () => {
               focus
               className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-10"
             >
-              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-purple-300 divide-y-2 divide-gray-50">
+              <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
                     <div>
                       <Image className="h-8 w-auto" src={logo} alt="logo" />
                     </div>
                     <div className="-mr-2">
-                      <PopoverButton className="bg-purple rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-purple-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                      <PopoverButton className="bg-gray rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500">
                         <span className="sr-only">Close menu</span>
                         <svg
                           className="h-6 w-6"
