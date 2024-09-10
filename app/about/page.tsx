@@ -1,3 +1,4 @@
+import Image from 'next/image';
 interface QrCodeIconProps {
   [key: string]: string | number | boolean;
 }
@@ -94,13 +95,11 @@ export default function Component() {
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                   We are a South African Film and Television Award Nominated
                   full-service production company specializing in creating
-                  high-quality video content for businesses of all sizes. From
-                  corporate videos to cinematic short films, we bring your
-                  vision to life.
+                  high-quality, cinematic, shows and films.
                 </p>
               </div>
               <div className="flex flex-col items-start space-y-4">
-                <img
+                <Image
                   src="/assets/images/logo.png"
                   width="400"
                   height="200"
@@ -124,7 +123,7 @@ export default function Component() {
                   filmmakers who wanted to create visually stunning and
                   impactful content for businesses. Over the years, we&apos;ve
                   grown into a full-service production company, offering a wide
-                  range of services from video production to motion graphics and
+                  range of services from video production to script writing, motion graphics and
                   animation.
                 </p>
               </div>
@@ -191,8 +190,7 @@ export default function Component() {
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   At Youngpreneur Media, we believe in creating exceptional
                   video content that not only looks great but also tells a
-                  compelling story. We are committed to excellence, innovation,
-                  and collaboration in everything we do.
+                  compelling story. We are committed to innovation, collaboration and excellence in everything we do.
                 </p>
               </div>
             </div>
@@ -200,7 +198,7 @@ export default function Component() {
               {values.map((value, index) => {
                 return (
                   <div className="grid gap-4" key={index + value.title}>
-                    <div className="rounded-full bg-primary p-1 flex gap-4 items-center">
+                    <div className="rounded-full bg-primary p-1 flex gap-4 justify-center items-center">
                       {value.icon}
                       <h3 className="text-lg font-bold">{value.title}</h3>
                     </div>

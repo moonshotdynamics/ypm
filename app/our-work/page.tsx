@@ -1,7 +1,10 @@
+'use client';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import ReactPlayer from 'react-player';
 
-const content = [
+const creative = [
   {
     title: '100 Days to Succeed',
     description:
@@ -46,6 +49,36 @@ const content = [
   },
 ];
 
+const corporate = [
+  {
+    title: 'Nedbank',
+    description:
+      'Nedbank Greenbacks Savings Program - A promotional video showcasing the benefits of the Nedbank Greenbacks Savings Program.',
+    videoURL: 'https://youtu.be/KEfRCAYxia8',
+  },
+  {
+    title: 'University of Cape Town',
+    description:
+      'A promotional video showcasing the University of Cape Town’s world-class facilities and academic programs.',
+    videoURL: 'https://www.youtube.com/watch?v=z8OMTwcxjrM',
+  },
+  {
+    title: 'LNL Group',
+    description:
+      'A corporate video introducing LNL Group’s services and showcasing their commitment to excellence.',
+    videoURL: 'https://www.youtube.com/watch?v=77J2Gls-2U4&t=7s',
+  },
+];
+
+const film = [
+  {
+    title: 'Fulfilled',
+    description:
+      'A short film exploring the themes of love, loss, and redemption, set against the backdrop of a bustling city.',
+    videoURL: 'https://youtu.be/6ayjsw2CipA',
+  },
+];
+
 export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
@@ -72,21 +105,20 @@ export default function Component() {
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
+      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            TV & Shows
+          </h2>
+        </div>
+
         <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {content.map((show, idx) => {
+          {creative.map((show, idx) => {
             return (
               <div
                 className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
                 key={idx + show.title}
               >
-                <Link
-                  href="#"
-                  className="absolute inset-0 z-10"
-                  prefetch={false}
-                >
-                  <span className="sr-only">View Project</span>
-                </Link>
                 <Image
                   src={show.imageUrl}
                   width={500}
@@ -105,72 +137,79 @@ export default function Component() {
           })}
         </div>
       </section>
-      {/* <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6 mx-auto">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Our Services
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                From concept to completion, we offer a wide range of production
-                services to bring your vision to life.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Video Production</h3>
-                <p className="text-muted-foreground">
-                  Crafting visually stunning videos for your brand.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Photography</h3>
-                <p className="text-muted-foreground">
-                  Capturing captivating images to elevate your brand.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Motion Graphics</h3>
-                <p className="text-muted-foreground">
-                  Bringing your ideas to life with dynamic animations.
-                </p>
-              </div>
-            </div>
-            <img
-              src="/placeholder.svg"
-              width={550}
-              height={310}
-              alt="Services"
-              className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-            />
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Post-Production</h3>
-                <p className="text-muted-foreground">
-                  Polishing your content to perfection with our editing
-                  expertise.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Live Events</h3>
-                <p className="text-muted-foreground">
-                  Capturing the energy and excitement of your live events.
-                </p>
-              </div>
-              <div className="grid gap-1">
-                <h3 className="text-xl font-bold">Aerial Cinematography</h3>
-                <p className="text-muted-foreground">
-                  Capturing breathtaking aerial footage to elevate your
-                  projects.
-                </p>
-              </div>
-            </div>
-          </div>
+      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Film
+          </h2>
         </div>
-      </section> */}
+
+        <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {film.map((show, idx) => {
+            return (
+              <div
+                className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                key={idx + show.title}
+              >
+                <ReactPlayer
+                  url={show.videoURL}
+                  width="640px"
+                  height="480px"
+                  className="flex justify-center"
+                  config={{
+                    youtube: {
+                      playerVars: { showinfo: 1 },
+                    },
+                  }}
+                />
+                <div className="p-4 bg-background">
+                  <h3 className="text-xl font-bold">{show.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {show.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Corporate
+          </h2>
+        </div>
+
+        <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+          {corporate.map((show, idx) => {
+            return (
+              <div
+                className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                key={idx + show.title}
+              >
+                <ReactPlayer
+                  url={show.videoURL}
+                  width="640px"
+                  height="480px"
+                  className="flex justify-center"
+                  config={{
+                    youtube: {
+                      playerVars: { showinfo: 1 },
+                    },
+                  }}
+                />
+                <div className="p-4 bg-background">
+                  <h3 className="text-xl font-bold">{show.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {show.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       <section className="w-full py-12 md:py-24 lg:py-32 border-t bg-white">
         <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 mx-auto">
           <div className="space-y-3">

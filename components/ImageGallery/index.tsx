@@ -47,12 +47,12 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images }) => {
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <div className="aspect-w-9 aspect-h-16 relative">
+            <div className=" relative">
               <Image
                 src={src}
                 alt={`Gallery image ${index + 1}`}
                 className="rounded-lg object-cover"
-                height={900}
+                height={1200}
                 width={400}
               />
             </div>
