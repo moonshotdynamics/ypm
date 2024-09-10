@@ -1,14 +1,42 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import {Play } from "lucide-react"
-import Gallery from "@/components/Gallery"
+'use client'
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Play } from 'lucide-react';
+import ImageGallery from '@/components/ImageGallery';
+import {useRouter} from 'next/navigation';
+import ReactPlayer from 'react-player';
+import {
+  Dialog,
+  DialogContent,
+  // DialogClose,
+  // DialogFooter,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
+
+const images = [
+  '/assets/images/100dts_prod.webp',
+  '/assets/images/mavericks.webp',
+  '/assets/images/awkward.webp',
+  '/assets/images/growing_up_broke.webp',
+  '/assets/images/mabt.webp',
+  '/assets/images/maker_junior.webp',
+];
 
 export default function LandingPage() {
+  const router = useRouter();
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary bg-contain bg-no-repeat" style={{ backgroundImage: `url(/assets/images/landing.webp)`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+        <section
+          className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-primary bg-contain bg-no-repeat"
+          style={{
+            backgroundImage: `url(/assets/images/landing.webp)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <div className="px-4 md:px-6 flex justify-center w-full container mx-auto">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -16,12 +44,20 @@ export default function LandingPage() {
                   Inspiring Youth Through Engaging Content
                 </h1>
                 <p className="mx-auto max-w-[700px] text-white md:text-xl">
-                  Youngpreneur Media: Where young minds find inspiration, laughter, and relatable stories.
+                  Youngpreneur Media: Where young minds find inspiration,
+                  laughter, and relatable stories.
                 </p>
               </div>
               <div className="space-x-4">
-                <Button variant="secondary">Explore Shows</Button>
-                <Button variant="outline" className="bg-white text-primary">Learn More</Button>
+                <Button
+                  variant="secondary"
+                  onClick={() => router.push('/our-work')}
+                >
+                  Explore Shows
+                </Button>
+                {/* <Button variant="outline" className="bg-white text-primary">
+                  Learn More
+                </Button> */}
               </div>
             </div>
           </div>
@@ -33,18 +69,51 @@ export default function LandingPage() {
             </h2>
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-white">SAFTA Nominated</div>
-                <h3 className="text-2xl font-bold">Laugh Out Loud with Our Latest Hit</h3>
+                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-white">
+                  SAFTA Nominated
+                </div>
+                <h3 className="text-2xl font-bold">
+                  Laugh Out Loud with Our Latest Hit
+                </h3>
                 <p className="text-white dark:text-gray-400">
-                  Join the hilarious adventures of high school friends, Esihle and Rhandzu, as they navigate teen life, first crushes, and
-                  the challenges of growing up. It&apos;s a rollercoaster of emotions you won&apos;t want to miss!
+                  Join the hilarious adventures of high school friends, Esihle
+                  and Rhandzu, as they navigate teen life, first crushes, and
+                  the challenges of growing up. It&apos;s a rollercoaster of
+                  emotions you won&apos;t want to miss!
                 </p>
-                <Button className="inline-flex items-center justify-center">
-                  <Play className="mr-2 h-4 w-4" /> Watch Trailer
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button className="inline-flex items-center justify-center">
+                      <Play className="mr-2 h-4 w-4" /> Watch Trailer
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-[60%] flex justify-center flex-col">
+                    <ReactPlayer
+                      url="https://youtu.be/5z6d4LhNsPo"
+                      width="640px"
+                      height="480px"
+                      className="flex justify-center"
+                      config={{
+                        vimeo: {
+                          playerOptions: {
+                            controls: false,
+                            responsive: true,
+                          },
+                        },
+                      }}
+                    />
+                    {/* <DialogFooter className="sm:justify-end">
+                      <DialogClose asChild>
+                        <Button type="button" variant="secondary">
+                          Close
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter> */}
+                  </DialogContent>
+                </Dialog>
               </div>
               <div className="aspect-video overflow-hidden rounded-xl">
-                <img
+                <Image
                   alt="Teen Comedy Show Poster"
                   className="object-cover w-full h-full"
                   height="300"
@@ -55,32 +124,41 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section>
-          <Gallery/>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-500">
+          <div className="px-4 md:px-6 container mx-auto">
+            <ImageGallery images={images} />
+          </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
           <div className="px-4 md:px-6 container mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Have a show idea?</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-black">
+                  Have a show idea?
+                </h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  Contact us, and let us breathe life into your vision. We&apos;re always on the lookout for fresh ideas.
+                  Contact us, and let us breathe life into your vision.
+                  We&apos;re always on the lookout for fresh ideas.
                 </p>
               </div>
               <div className="w-full max-w-sm space-y-2">
                 <form className="flex space-x-2">
-                  <Input className="max-w-lg flex-1" placeholder="Enter your email" type="email" />
+                  <Input
+                    className="max-w-lg flex-1"
+                    placeholder="Enter your email"
+                    type="email"
+                  />
                   <Button type="submit">Subscribe</Button>
                 </form>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  By subscribing, you agree to our Terms of Service and Privacy Policy.
+                  By subscribing, you agree to our Terms of Service and Privacy
+                  Policy.
                 </p>
               </div>
             </div>
           </div>
         </section>
       </main>
-
     </div>
-  )
+  );
 }

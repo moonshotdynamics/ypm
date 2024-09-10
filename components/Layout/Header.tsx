@@ -1,5 +1,10 @@
 'use client';
-import { Popover, Transition, PopoverPanel, PopoverButton } from '@headlessui/react';
+import {
+  Popover,
+  Transition,
+  PopoverPanel,
+  PopoverButton,
+} from '@headlessui/react';
 import { Fragment } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -27,7 +32,8 @@ const Header = () => {
                 href="/"
                 className="text-2xl font-bold text-black hover:purple ml-2"
               >
-                Youngpreneur Media              </Link>
+                Youngpreneur Media{' '}
+              </Link>
             </div>
             <div className="hidden md:flex items-center space-x-1">
               {navigation.map((item) => (
