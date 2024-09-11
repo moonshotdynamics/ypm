@@ -26,13 +26,13 @@ const Header = () => {
       {({ open }) => (
         <>
           <nav className="mx-auto px-6 py-3 flex justify-between items-center bg-white">
-            <div className="flex items-center">
+            <div className="flex items-center" onClick={() => window.location.assign('/')}>
               <Image src={logo} alt="logo" height={40} width={50} />
               <Link
                 href="/"
                 className="text-2xl font-bold text-black hover:gray ml-2"
               >
-                Youngpreneur Media{' '}
+                Youngpreneur Media
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-1">

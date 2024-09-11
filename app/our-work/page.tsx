@@ -36,7 +36,7 @@ const creative = [
   {
     title: 'The Mysterious Adventures of the B-Team',
     description:
-      "Introducing the B-Team: a lineup featuring Mo the strategist (in her own mind), Alex the downer, Mabatho the ninja (because who ever sees her?), Divya the oddball with gadgets galore, and Noah...well, Noah's special talent is pending revelation. This band of merry misfits, more by accident than design, becomes the self-appointed guardians of the night (in a neighborhood blissfully unaware of their existence).",
+      "'The Mysterious Adventures of the B-Team' is a fun-filled comedy adventure series for children and early teens. Join a quirky group of friends as they stumble into exciting mysteries, tackle unexpected challenges, and learn to work together, all while navigating everyday life. With humor, teamwork, and a bit of chaos, this group takes on adventures that will leave audiences laughing and cheering for more",
     imageUrl: '/assets/images/mabt.webp',
     alt: 'The Mysterious Adventures of the B-Team',
   },
