@@ -23,7 +23,7 @@ export default function ContactUs() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: Event) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -68,7 +68,7 @@ export default function ContactUs() {
           <CardDescription>Get in touch with our team</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={() => handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Name</Label>
@@ -101,14 +101,18 @@ export default function ContactUs() {
                   required
                 />
               </div>
+              <CardFooter>
+                <Button
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </CardFooter>
             </div>
           </form>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Sending...' : 'Send Message'}
-          </Button>
-        </CardFooter>
       </Card>
     </div>
   );

@@ -1,9 +1,7 @@
 import nodemailer from 'nodemailer';
-import nodemailerSendgrid from 'nodemailer-sendgrid';
 
 import { NextResponse, NextRequest } from 'next/server';
 export async function POST(req: NextRequest) {
-
   const { name, email, message } = (await req.json()) as {
     name: string;
     email: string;
@@ -11,20 +9,23 @@ export async function POST(req: NextRequest) {
   };
 
   // Create a nodemailer transporter
- 
+
   const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
-  const transport = nodemailer.createTransport(
-    nodemailerSendgrid({
-      apiKey: sendgridApiKey,
-    })
-  );
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.sendgrid.net',
+    port: 587,
+    auth: {
+      user: 'apikey',
+      pass: sendgridApiKey,
+    },
+  });
 
   try {
     // Send email
-    await transport.sendMail({
+    await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: 'indira@youngpreneurmedia.com;tshemm@gmail.com',
-      subject: 'New Contact Form Submission',
+      to: 'indira@youngprenuermedia.com;tshemm@gmail.com',
+      subject: 'YPM: New Contact Form Submission',
       text: `
         Name: ${name}
         Email: ${email}

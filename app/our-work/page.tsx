@@ -8,42 +8,42 @@ const creative = [
   {
     title: '100 Days to Succeed',
     description:
-      "Join the hilarious adventures of high school friends, Esihle and Rhandzu, as they navigate teen life, first crushes, and the challenges of growing up. It's a rollercoaster of emotions you won't want to miss!",
+      'Esihle and Rhandzu put their non-existent talents to use, making video blogs for their online style guide channel. Upon reaching 10,000 subscribers for their fashion-forward videos, the friends are invited to attend a prestigious business & innovation school for talented kids where they are not taken seriously. There, they continue their quest to reach the top of the blogosphere, only the problem is, they have zero business acumen. The girls embark on a series of comedic adventures in hopes of becoming successful entrepreneurs.',
     imageUrl: '/assets/images/100dts_prod.webp',
     alt: '100 Days to Succeed',
   },
   {
     title: 'The Mavericks',
     description:
-      'Follow the journey of a group of young entrepreneurs as they navigate the challenges of starting a business and making their mark on the world.',
+      'What happens when South Africa’s business elite pursue new dreams? People, passion and power are put to the test - as the big dream bigger. In a world of competition, conflict and innovation - South Africans strive forward to achieve the impossible. See what it takes to be a trailblazing entrepreneur as the business elite take on new challenges. Success recipes revealed; trade secrets uncovered: this is how to navigate the boardroom and economic transformation of a new South Africa. In The Mavericks we meet South Africa’s most successful entrepreneurs as they pursue new dreams. We are introduced to trailblazers, self-made millionaires, innovators who are the epitome of successful South Africans. The show unpacks the tools to success by uncovering the realities of the country’s self-made industry influencers as they pursue new business or social challenges - they have already achieved much, but the series captures them as they take a new turn in their journey.',
     imageUrl: '/assets/images/mavericks.webp',
     alt: 'The Mavericks',
   },
   {
     title: 'Awkward',
     description:
-      'Experience the awkward, funny, and relatable moments of high school life with our teen drama series.',
+      "Welcome to Cape Town's quirky underbelly of publishing, where we dive into the lives of three friends — Lea, Sasha, and Melissa — who once aced their university classes together but now find their paths hilariously divergent. It's the perfect recipe for comedy and drama in '...Awkward,' because, as we all know, money between friends is always... well, awkward.",
     imageUrl: '/assets/images/awkward.webp',
     alt: 'Awkward',
   },
   {
     title: 'Growing Up Broke',
     description:
-      'A heartwarming and inspiring documentary series that follows the lives of young people overcoming adversity and pursuing their dreams.',
+      "'Growing Up Broke' is a comedic romp through a country's rebirth, seen through the eyes of a boy who's just trying to make sense of it all. It’s a story about time: both history and one's future, fit together through the narrative of a child.",
     imageUrl: '/assets/images/growing_up_broke.webp',
     alt: 'Growing Up Broke',
   },
   {
     title: 'The Mysterious Adventures of the B-Team',
     description:
-      'Join the B-Team on their thrilling adventures as they solve mysteries, uncover secrets, and save the day!',
+      "Introducing the B-Team: a lineup featuring Mo the strategist (in her own mind), Alex the downer, Mabatho the ninja (because who ever sees her?), Divya the oddball with gadgets galore, and Noah...well, Noah's special talent is pending revelation. This band of merry misfits, more by accident than design, becomes the self-appointed guardians of the night (in a neighborhood blissfully unaware of their existence).",
     imageUrl: '/assets/images/mabt.webp',
     alt: 'The Mysterious Adventures of the B-Team',
   },
   {
     title: 'The Maker Junior',
     description:
-      'Get ready for creativity, innovation, and fun with our DIY show for kids and teens.',
+      "'The Maker Junior: Unleash the Genius Within' is an exhilarating and electrifying television series that takes viewers on a thrilling journey into the minds of South Africa's brightest young STEAM prodigies.",
     imageUrl: '/assets/images/maker_junior.webp',
     alt: 'The Maker Junior',
   },
@@ -82,155 +82,157 @@ const film = [
 export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
-      <section className="w-full pt-12 md:pt-24 lg:pt-32">
-        <div className="container space-y-10 xl:space-y-16 mx-auto">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-2">
-              <Image
-                src="/assets/images/logo.png"
-                width={220}
-                height={120}
-                alt="Production Company Logo"
-                className="mx-auto"
-                style={{ aspectRatio: '120/120', objectFit: 'contain' }}
-              />
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                Youngpreneur Media
-              </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Crafting visually stunning and captivating content for our
-                clients.
-              </p>
+      <main className="flex-1 px-5">
+        <section className="w-full pt-12 md:pt-24 lg:pt-32">
+          <div className="container space-y-10 xl:space-y-16 mx-auto">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <Image
+                  src="/assets/images/logo.png"
+                  width={220}
+                  height={120}
+                  alt="Production Company Logo"
+                  className="mx-auto"
+                  style={{ aspectRatio: '120/120', objectFit: 'contain' }}
+                />
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Youngpreneur Media
+                </h1>
+                <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
+                  Crafting visually stunning and captivating content for our
+                  clients.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            TV & Shows
-          </h2>
-        </div>
-
-        <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {creative.map((show, idx) => {
-            return (
-              <div
-                className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-                key={idx + show.title}
-              >
-                <Image
-                  src={show.imageUrl}
-                  width={500}
-                  height={300}
-                  alt={show.alt}
-                  className="aspect-video object-cover"
-                />
-                <div className="p-4 bg-background">
-                  <h3 className="text-xl font-bold">{show.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {show.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Film
-          </h2>
-        </div>
-
-        <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {film.map((show, idx) => {
-            return (
-              <div
-                className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-                key={idx + show.title}
-              >
-                <ReactPlayer
-                  url={show.videoURL}
-                  width="640px"
-                  height="480px"
-                  className="flex justify-center"
-                  config={{
-                    youtube: {
-                      playerVars: { showinfo: 1 },
-                    },
-                  }}
-                />
-                <div className="p-4 bg-background">
-                  <h3 className="text-xl font-bold">{show.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {show.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-      <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Corporate
-          </h2>
-        </div>
-
-        <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {corporate.map((show, idx) => {
-            return (
-              <div
-                className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
-                key={idx + show.title}
-              >
-                <ReactPlayer
-                  url={show.videoURL}
-                  width="640px"
-                  height="480px"
-                  className="flex justify-center"
-                  config={{
-                    youtube: {
-                      playerVars: { showinfo: 1 },
-                    },
-                  }}
-                />
-                <div className="p-4 bg-background">
-                  <h3 className="text-xl font-bold">{show.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {show.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="w-full py-12 md:py-24 lg:py-32 border-t bg-white">
-        <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 mx-auto">
-          <div className="space-y-3">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-black">
-              Ready to bring your vision to life?
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              TV & Shows
             </h2>
-            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Contact us today to discuss your project and how we can help.
-            </p>
           </div>
-          <div className="mx-auto w-full max-w-sm space-y-2">
-            <Link
-              href="/contact-us"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-              prefetch={false}
-            >
-              Get in Touch
-            </Link>
+
+          <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {creative.map((show, idx) => {
+              return (
+                <div
+                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                  key={idx + show.title}
+                >
+                  <Image
+                    src={show.imageUrl}
+                    width={500}
+                    height={300}
+                    alt={show.alt}
+                    className="aspect-video object-cover"
+                  />
+                  <div className="p-4 bg-background">
+                    <h3 className="text-xl font-bold">{show.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {show.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Film
+            </h2>
+          </div>
+
+          <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {film.map((show, idx) => {
+              return (
+                <div
+                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                  key={idx + show.title}
+                >
+                  <ReactPlayer
+                    url={show.videoURL}
+                    width="640px"
+                    height="480px"
+                    className="flex justify-center"
+                    config={{
+                      youtube: {
+                        playerVars: { showinfo: 1 },
+                      },
+                    }}
+                  />
+                  <div className="p-4 bg-background">
+                    <h3 className="text-xl font-bold">{show.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {show.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <section className="w-full py-12 md:py-24 lg:py-32 flex flex-col items-center">
+          <div className="mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+              Corporate
+            </h2>
+          </div>
+
+          <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {corporate.map((show, idx) => {
+              return (
+                <div
+                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
+                  key={idx + show.title}
+                >
+                  <ReactPlayer
+                    url={show.videoURL}
+                    width="640px"
+                    height="480px"
+                    className="flex justify-center"
+                    config={{
+                      youtube: {
+                        playerVars: { showinfo: 1 },
+                      },
+                    }}
+                  />
+                  <div className="p-4 bg-background">
+                    <h3 className="text-xl font-bold">{show.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {show.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24 lg:py-32 border-t bg-white">
+          <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 mx-auto">
+            <div className="space-y-3">
+              <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-black">
+                Ready to bring your vision to life?
+              </h2>
+              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Contact us today to discuss your project and how we can help.
+              </p>
+            </div>
+            <div className="mx-auto w-full max-w-sm space-y-2">
+              <Link
+                href="/contact-us"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                prefetch={false}
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }

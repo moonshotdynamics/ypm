@@ -9,9 +9,9 @@ import ReactPlayer from 'react-player';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 
 const images = [
-  '/assets/images/100dts_prod.webp',
   '/assets/images/mavericks.webp',
   '/assets/images/awkward.webp',
+  '/assets/images/100dts_prod.webp',
   '/assets/images/growing_up_broke.webp',
   '/assets/images/mabt.webp',
   '/assets/images/maker_junior.webp',
@@ -147,7 +147,8 @@ export default function LandingPage() {
                   <Button type="submit">Let&apos;s work</Button>
                 </form>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  By emailing, you agree to having one of our team members reaching out to you via email. 
+                  By emailing, you agree to having one of our team members
+                  reaching out to you via email.
                 </p>
               </div>
             </div>

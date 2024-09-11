@@ -61,19 +61,19 @@ const values = [
   {
     title: 'Innovation',
     description:
-      "We constantly explore new techniques and technologies to push the boundaries of what's possible in video production.",
+      "We are pioneers in embracing new techniques and technologies, always striving to redefine what's possible in video production. By staying ahead of industry trends, we push creative and technical boundaries to deliver fresh, cutting-edge content.",
     icon: <LightbulbIcon className="h-10 w-10 text-primary-foreground" />,
   },
   {
     title: 'Collaboration',
     description:
-      'We believe in the power of teamwork and work closely with our clients to bring their vision to life.',
+      'We see every project as a partnership. By fostering open communication and collaboration with our clients, we work as a seamless team to transform their ideas into compelling visuals that align with their vision and goals.',
     icon: <WorkflowIcon className="h-10 w-10 text-primary-foreground" />,
   },
   {
     title: 'Excellence',
     description:
-      "We are committed to delivering the highest quality video content, ensuring that every project exceeds our clients' expectations.",
+      'Excellence is the foundation of everything we do. We are dedicated to producing video content that consistently surpasses expectations, delivering results that are not only visually stunning but also highly impactful.',
     icon: <QrCodeIcon className="h-10 w-10 text-primary-foreground" />,
   },
 ];
@@ -119,12 +119,22 @@ export default function Component() {
                   Our Story
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Youngpreneur Media was founded in 2010 by a team of passionate
-                  filmmakers who wanted to create visually stunning and
-                  impactful content for businesses. Over the years, we&apos;ve
-                  grown into a full-service production company, offering a wide
-                  range of services from video production to script writing, motion graphics and
-                  animation.
+                  Founded in 2013, Youngpreneur Media is a full-service
+                  production company driven by a team of visionary filmmakers.
+                  Our mission has always been to create visually captivating and
+                  emotionally impactful content that resonates with audiences
+                  worldwide. From scriptwriting to post-production, we take
+                  ideas from concept to screen, delivering award-winning
+                  projects that engage, inspire, and elevate brands. With a
+                  decade of experience, we specialize in high-quality video
+                  production, motion graphics, and animation. Our talented
+                  production team and post-production experts have worked on
+                  acclaimed films, commercials, and corporate videos, ensuring
+                  every project we deliver stands out. At Youngpreneur Media, we
+                  believe in storytelling that connects. We’ve been recognized
+                  for our ability to craft compelling narratives, helping
+                  businesses bring their vision to life with creative solutions
+                  that make an impact.
                 </p>
               </div>
             </div>
@@ -188,9 +198,14 @@ export default function Component() {
                   Our Values
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  At Youngpreneur Media, we believe in creating exceptional
-                  video content that not only looks great but also tells a
-                  compelling story. We are committed to innovation, collaboration and excellence in everything we do.
+                  We are driven by a passion for storytelling that goes beyond
+                  visuals. We believe in crafting content that not only
+                  captivates but also resonates deeply with audiences. Our
+                  commitment to innovation fuels our creativity, collaboration
+                  strengthens our vision, and excellence defines the standard we
+                  bring to every project. We strive to push boundaries, ensuring
+                  that each production reflects our dedication to quality and
+                  storytelling that leaves a lasting impression.
                 </p>
               </div>
             </div>
