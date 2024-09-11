@@ -61,8 +61,8 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="container mx-auto p-4 h-full">
-      <Card className="max-w-lg mx-auto">
+    <div className="container mx-auto p-4 h-full flex min-h-[100vh]">
+      <Card className="w-full max-w-2xl mx-auto h-[450px]">
         <CardHeader>
           <CardTitle>Contact Us</CardTitle>
           <CardDescription>Get in touch with our team</CardDescription>
