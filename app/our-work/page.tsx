@@ -1,8 +1,29 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ReactPlayer from 'react-player';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Play } from 'lucide-react';
+
+// Helper function to get YouTube video ID
+const getYouTubeVideoId = (url: string) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return match && match[2].length === 11 ? match[2] : null;
+};
+
+// Helper function to get YouTube thumbnail URL
+const getYouTubeThumbnail = (url: string) => {
+  const videoId = getYouTubeVideoId(url);
+  return videoId
+    ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+    : null;
+};
+
+const placeholderImage =
+  'https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=3200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+
 
 const creative = [
   {
@@ -66,7 +87,7 @@ const corporate = [
     title: 'LNL Group',
     description:
       'A corporate video introducing LNL Group’s services and showcasing their commitment to excellence.',
-    videoURL: 'https://www.youtube.com/watch?v=77J2Gls-2U4&t=7s',
+    videoURL: 'https://www.youtube.com/watch?v=77J2Gls-2U4',
   },
 ];
 
@@ -80,6 +101,15 @@ const film = [
 ];
 
 export default function Component() {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+
+  const handleVideoClick = (videoURL: string) => {
+    setSelectedVideo(videoURL);
+    setIsDialogOpen(true);
+  };
+
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <main className="flex-1 px-5">
@@ -147,22 +177,26 @@ export default function Component() {
 
           <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {film.map((show, idx) => {
+              const thumbnailUrl = getYouTubeThumbnail(show.videoURL);
               return (
                 <div
-                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
                   key={idx + show.title}
+                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out cursor-pointer"
+                  onClick={() => handleVideoClick(show.videoURL)}
                 >
-                  <ReactPlayer
-                    url={show.videoURL}
-                    width="640px"
-                    height="480px"
-                    className="flex justify-center"
-                    config={{
-                      youtube: {
-                        playerVars: { showinfo: 1 },
-                      },
-                    }}
-                  />
+                  <div className="relative aspect-video bg-gray-800">
+                    {thumbnailUrl && (
+                      <Image
+                        src={thumbnailUrl}
+                        alt={`${show.title} thumbnail`}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-50 transition-all">
+                      <Play className="w-12 h-12 text-white opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
                   <div className="p-4 bg-background">
                     <h3 className="text-xl font-bold">{show.title}</h3>
                     <p className="text-sm text-muted-foreground">
@@ -183,22 +217,29 @@ export default function Component() {
 
           <div className="container mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {corporate.map((show, idx) => {
+              const thumbnailUrl = show.title.toLowerCase().includes('lnl')
+                ? placeholderImage
+                : getYouTubeThumbnail(show.videoURL);
+
               return (
                 <div
-                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out"
                   key={idx + show.title}
+                  className="relative overflow-hidden rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 ease-in-out cursor-pointer"
+                  onClick={() => handleVideoClick(show.videoURL)}
                 >
-                  <ReactPlayer
-                    url={show.videoURL}
-                    width="640px"
-                    height="480px"
-                    className="flex justify-center"
-                    config={{
-                      youtube: {
-                        playerVars: { showinfo: 1 },
-                      },
-                    }}
-                  />
+                  <div className="relative aspect-video bg-gray-800">
+                    {thumbnailUrl && (
+                      <Image
+                        src={thumbnailUrl}
+                        alt={`${show.title} thumbnail`}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-50 transition-all">
+                      <Play className="w-12 h-12 text-white opacity-70 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                  </div>
                   <div className="p-4 bg-background">
                     <h3 className="text-xl font-bold">{show.title}</h3>
                     <p className="text-sm text-muted-foreground">
@@ -233,6 +274,38 @@ export default function Component() {
           </div>
         </section>
       </main>
+
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-[90%] md:max-w-[80%] lg:max-w-[70%] p-4">
+          <DialogHeader>
+            <DialogTitle>Watch Video</DialogTitle>
+            <DialogDescription>
+              Click outside or use the ESC key to close
+            </DialogDescription>
+          </DialogHeader>
+          <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden">
+            {selectedVideo && (
+              <ReactPlayer
+                url={selectedVideo}
+                width="100%"
+                height="100%"
+                className="absolute top-0 left-0"
+                controls={true}
+                playing={isDialogOpen}
+                config={{
+                  youtube: {
+                    playerVars: { 
+                      showinfo: 1,
+                      modestbranding: 1,
+                      rel: 0
+                    },
+                  },
+                }}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

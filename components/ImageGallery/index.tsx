@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useRef, useState } from 'react';
 import Image from 'next/image';
-import { Swiper, SwiperSlide, SwiperRef, SwiperProps } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -14,32 +14,34 @@ interface ImageGalleryProps {
 }
 
 const ImageGallery: FC<ImageGalleryProps> = ({ images }) => {
-  const swiperRef = useRef<SwiperRef>(null);
-  const swiperButtonNextRef = useRef<HTMLButtonElement>(null);
-  const swiperButtonPrevRef = useRef<HTMLButtonElement>(null);
-
   const [currentSlide, setCurrentSlide] = useState(0);
+  const navigationPrevRef = useRef<HTMLButtonElement>(null);
+  const navigationNextRef = useRef<HTMLButtonElement>(null);
 
   const disablePrev = currentSlide === 0;
   const disableNext = currentSlide === images.length - 1;
 
-
-  const swiperProps: SwiperProps & React.RefAttributes<SwiperRef> = {
-    ref: swiperRef,
-    modules: [Navigation],
-    slidesPerView: 3,
-    spaceBetween: 20,
-
-    navigation: {
-      nextEl: swiperButtonNextRef.current,
-      prevEl: swiperButtonPrevRef.current,
-    },
-    onSlideChange: (swiper) => setCurrentSlide(swiper.activeIndex),
-  };
-
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
-      <Swiper {...swiperProps}>
+    <div className="relative w-full max-w-4xl mx-auto group">
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={3}
+        spaceBetween={20}
+        onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
+        navigation={{
+          prevEl: navigationPrevRef.current,
+          nextEl: navigationNextRef.current,
+        }}
+        onBeforeInit={(swiper) => {
+          if (typeof swiper.params.navigation !== 'boolean') {
+            // @ts-expect-error
+            swiper.params.navigation.prevEl = navigationPrevRef.current;
+            // @ts-expect-error
+            swiper.params.navigation.nextEl = navigationNextRef.current;
+          }
+        }}
+        className="relative"
+      >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
             <div className="relative">
@@ -53,21 +55,33 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images }) => {
             </div>
           </SwiperSlide>
         ))}
+        <div className="absolute inset-0 flex items-center justify-between z-10 pointer-events-none">
+          <button
+            ref={navigationPrevRef}
+            className={`pointer-events-auto absolute left-2 bg-white bg-opacity-50 p-2 rounded-full shadow-md hover:bg-opacity-75 transition-colors ${
+              disablePrev ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={disablePrev}
+          >
+            <ChevronLeft className="w-6 h-6 text-gray-800" />
+          </button>
+          <button
+            ref={navigationNextRef}
+            className={`pointer-events-auto absolute right-2 bg-white bg-opacity-50 p-2 rounded-full shadow-md hover:bg-opacity-75 transition-colors ${
+              disableNext ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
+            disabled={disableNext}
+          >
+            <ChevronRight className="w-6 h-6 text-gray-800" />
+          </button>
+        </div>
       </Swiper>
-      <button
-        className="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 p-1 rounded-full shadow-md hover:bg-opacity-75 transition-colors"
-        disabled={disablePrev}
-        ref={swiperButtonPrevRef}
-      >
-        <ChevronLeft className="w-4 h-4 text-gray-800" />
-      </button>
-      <button
-        className="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white bg-opacity-50 p-1 rounded-full shadow-md hover:bg-opacity-75 transition-colors"
-        disabled={disableNext}
-        ref={swiperButtonNextRef}
-      >
-        <ChevronRight className="w-4 h-4 text-gray-800" />
-      </button>
+      <style jsx global>{`
+        .swiper-button-prev,
+        .swiper-button-next {
+          display: none !important;
+        }
+      `}</style>
     </div>
   );
 };
