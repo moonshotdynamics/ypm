@@ -3,6 +3,7 @@ import React, { FC, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Import Swiper styles
@@ -32,11 +33,9 @@ const ImageGallery: FC<ImageGalleryProps> = ({ images }) => {
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          if (typeof swiper.params.navigation !== 'boolean') {
-            // @ts-expect-error
+        onBeforeInit={(swiper: SwiperType) => {
+          if (swiper.params.navigation && typeof swiper.params.navigation !== 'boolean') {
             swiper.params.navigation.prevEl = navigationPrevRef.current;
-            // @ts-expect-error
             swiper.params.navigation.nextEl = navigationNextRef.current;
           }
         }}
