@@ -61,11 +61,11 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="container mx-auto p-4 h-full flex min-h-[100vh]">
-      <Card className="w-full max-w-2xl mx-auto h-[450px]">
+    <div className="container mx-auto p-4 pt-32 h-full flex min-h-[100vh]">
+      <Card className="w-full max-w-2xl mx-auto h-auto min-h-[450px] bg-white/5 border-white/10 backdrop-blur-xl text-white">
         <CardHeader>
-          <CardTitle>Contact Us</CardTitle>
-          <CardDescription>Get in touch with our team</CardDescription>
+          <CardTitle className="text-3xl font-extrabold tracking-tight">Contact Us</CardTitle>
+          <CardDescription className="text-white/60 text-lg font-light">Get in touch with our team</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
@@ -78,6 +78,7 @@ export default function ContactUs() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  className="bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30"
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
@@ -89,6 +90,7 @@ export default function ContactUs() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30"
                 />
               </div>
               <div className="flex flex-col space-y-1.5">
@@ -99,12 +101,13 @@ export default function ContactUs() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
+                  className="bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:border-white/30 min-h-[120px]"
                 />
               </div>
               <CardFooter>
                 <Button
                   type="submit"
-                  className="w-full"
+                  className="w-full bg-white text-black hover:bg-white/90 font-medium text-lg h-12 rounded-full transition-all duration-300"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}

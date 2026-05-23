@@ -6,6 +6,9 @@ import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
 
 
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,12 +33,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white selection:bg-white/30 selection:text-white cursor-none`}
       >
-      <Header/>
-        {children}
-        <Analytics />
-        <Footer/>
+        <SmoothScroll>
+          <CustomCursor />
+          <Header />
+          {children}
+          <Analytics />
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

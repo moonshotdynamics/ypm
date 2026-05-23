@@ -82,7 +82,7 @@ export default function Component() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <main className="flex-1">
-        <section className="w-full pt-12 md:pt-24 lg:pt-32">
+        <section className="w-full pt-28 md:pt-32 lg:pt-40">
           <div className="space-y-10 xl:space-y-16 container mx-auto">
             <div className="grid gap-4 px-10 md:grid-cols-2 md:gap-16">
               <div>
